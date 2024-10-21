@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand bg-body-tertiary">
+  <div class="container-fluid justify-content-around">
+    <a class="navbar-brand" routerLink="/">Navbar</a>
+
+    <ul class="navbar-nav mb-0 py-2">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link position-relative" routerLink="/preferiti"
+          >Preferiti
+          <span
+            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+            [ngClass]="{ 'd-none': favourites === 0 }"
+          >
+            {{ badgefavourites() }}
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

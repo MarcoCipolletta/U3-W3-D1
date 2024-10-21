@@ -1,0 +1,51 @@
+<div class="">
+  <ng-template #content let-offcanvas>
+    <div class="position-relative overflow-y-auto">
+      <div class="offcanvas-header">
+        <h4 class="offcanvas-title">Carrello</h4>
+        <button
+          type="button"
+          class="btn-close"
+          aria-label="Close"
+          (click)="offcanvas.dismiss('Cross click')"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <ol class="list-group list-group-numbered pb-4">
+          <li
+            *ngFor="let prod of cart"
+            class="list-group-item d-flex justify-content-between align-items-center"
+          >
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">{{ prod.title }}</div>
+              <p class="m-0">{{ prod.price | currency : "EUR" }}</p>
+              <p class="m-0">Amount: {{ prod.price | currency : "EUR" }}</p>
+            </div>
+            <div
+              class="d-flex flex-column justify-content-center align-items-end gap-2"
+            >
+              <div>
+                <span class="badge bg-primary rounded-pill">{{
+                  prod.price | currency : "EUR"
+                }}</span>
+                <span role="button" class="badge bg-warning rounded-pill ms-2"
+                  ><i class="fa-solid fa-xmark"></i
+                ></span>
+              </div>
+              <span role="button" class="badge bg-danger rounded-pill"
+                >Elimina tutto</span
+              >
+            </div>
+          </li>
+        </ol>
+      </div>
+      <div class="position-fixed bottom-0 w-100 bottomCart">
+        <p>TOTALE: <span class="fw-bold">totalPrice</span></p>
+      </div>
+    </div>
+  </ng-template>
+
+  <button class="btn btnCart" (click)="openEnd(content)">
+    <i class="fa-solid fa-cart-shopping"></i>
+  </button>
+</div>

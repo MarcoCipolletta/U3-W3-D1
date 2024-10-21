@@ -1,0 +1,14 @@
+<div class="container">
+  <div
+    *ngIf="favourites.length > 0"
+    class="row py-3 row-cols-1 row-cols-md-2 row-cols-lg-4 g-3"
+  >
+    <div class="col" *ngFor="let product of favourites">
+      <app-card [product]="product"></app-card>
+    </div>
+  </div>
+  <div *ngIf="favourites.length === 0" class="row py-3 text-center">
+    <h3>Non ci sono prodotti nei preferiti!</h3>
+    <p>Torna alla <a class="" routerLink="/">Home</a> per sceglierli</p>
+  </div>
+</div>
